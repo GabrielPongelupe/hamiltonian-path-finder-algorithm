@@ -58,7 +58,7 @@ This section breaks down how the Hamiltonian Path algorithm using backtracking w
 
 ---
 
-## Asymptotic Complexity Analysis
+## 📊 Asymptotic Complexity Analysis
 ### Time Complexity
 * Worst-case (O(N!)): In the worst case, the algorithm explores all possible permutations of the vertices. For a graph with N vertices, there are N! possible ways to arrange these vertices in a path. Thus, in the worst-case scenario, the algorithm must check every permutation, leading to a time complexity of O(N!).
 * __Best-case (O(N)):__ In the best case, the algorithm may find the Hamiltonian path early, such as on the first few branches of the search tree. If a valid path is found quickly, the algorithm performs in a nearly linear fashion, giving a time complexity of O(N).
@@ -71,7 +71,7 @@ The overall complexity is dominated by the factorial growth in the worst case, w
 
 ---
 
-## Analysis Using the Master Theorem
+## ⚙️ Analysis Using the Master Theorem
 The Master Theorem is typically applied to problems that exhibit a recursive structure, where the problem is divided into smaller subproblems of the same kind. This kind of recursive breakdown fits the recurrence relation:
 ```
 T(n) = aT(n/b) + f(n)
@@ -83,5 +83,65 @@ Here:
 
 However, this approach doesn't align with the structure of the Hamiltonian Path algorithm. Instead of dividing the problem into smaller, manageable pieces, the algorithm explores multiple potential solutions through a backtracking process. This means the problem doesn't follow a clean recursive division of the input, which makes it incompatible with the type of recurrence required for applying the Master Theorem.
 
-### Why the Master Theorem Doesn't Fit Here
+### ❓ Why the Master Theorem Doesn't Fit Here
 The Master Theorem doesn't apply to the Hamiltonian Path algorithm because it doesn't divide the problem into smaller subproblems in a systematic way. Instead, the algorithm explores different path combinations and backtracks when necessary. The search space grows exponentially, and it doesn't fit the required format for using the Master Theorem, which relies on dividing the problem recursively. Therefore, the Master Theorem isn't useful for analyzing this algorithm.
+
+---
+## 🧠 Complexity Classification: P, NP, NP-Complete, and NP-Hard
+### What is Complexity Classification?
+Complexity classification refers to categorizing computational problems based on how their difficulty scales as the size of the input increases. These categories help us understand how efficiently a problem can be solved and what resources (time and space) are required to find a solution. The main classifications are:
+
+* __P Class:__ Problems that can be solved in polynomial time. These are the easiest problems to solve, where the time taken grows at a manageable rate as the input size increases.
+
+* __NP Class:__ Problems for which solutions can be verified in polynomial time. While it may be hard to find a solution, if you're given a solution, you can check if it’s correct quickly.
+
+* __NP-Complete:__ These are the hardest problems within NP. If any NP-Complete problem can be solved in polynomial time, then all NP problems can be solved in polynomial time. However, no polynomial-time algorithm is currently known for any NP-Complete problem.
+
+* __NP-Hard:__ Problems that are at least as hard as NP problems but may not be in NP. They might not even have a solution that can be verified in polynomial time.
+
+### 🔍 Analysis
+The Hamiltonian Path problem is categorized as NP-Complete:
+
+- NP Class: For problems in this category, checking whether a given solution is correct can be done in polynomial time.
+
+- NP-Complete: These problems are some of the most challenging in NP. A well-known problem like the Traveling Salesman Problem (TSP) can be transformed into a Hamiltonian Path problem, highlighting its complexity.
+
+Despite being classified in NP, no polynomial-time algorithm has been found that can solve all instances of NP-Complete problems efficiently.
+
+---
+
+## 🖼️ Visualization
+Visualization of the Hamiltonian Path solution provides a graphical representation to enhance understanding of the algorithm’s process and results. This feature is optional but serves as a great visual aid for anyone looking to see how the algorithm works in action.
+
+### ✨ Features:
+* All vertices and edges of the graph are displayed.
+
+* The Hamiltonian Path, if found, is highlighted in red to distinguish it from the rest of the graph.
+
+### 🏁 How to Run the Visualization:
+If you'd like to visualize the graph and the Hamiltonian Path, follow these steps:
+__1. Ensure Dependencies Are Installed__
+Before running the visualization, make sure the required libraries are installed. If you haven’t already, you can install them using:
+```bash
+pip install networkx matplotlib
+```
+__2. Run the Visualization Script After setting up the project, navigate to the project directory and run the visualization script:__
+```bash
+python hamiltonianPathView.py
+```
+This will launch a graphical window showing the graph with vertices, edges, and the Hamiltonian Path in red, if one is found.
+
+### 💡 Example:
+When you run the visualization, you’ll see something like this:
+
+![image](https://github.com/user-attachments/assets/d805f92d-957f-4d18-ba0e-f311b0f1a16a)
+
+- A graph with connected nodes (vertices) and edges linking them.
+
+- If the Hamiltonian Path is discovered, it will be drawn in red, allowing you to visually follow the path through the graph.
+
+This visual feedback helps to understand how the algorithm explores different paths and highlights the solution when found.
+
+---
+
+
