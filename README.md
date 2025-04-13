@@ -1,5 +1,7 @@
 # hamiltonian-path-finder-algorithm
 
+I chose to write this project in English so it could reach a wider audience. Since people from different parts of the world might visit my profile, I thought it would be a great way to make the content more accessible and maybe even connect with others who are also interested in algorithm design.
+
 This project explores the use of backtracking to solve the Hamiltonian Path problem, implemented in Python. The algorithm systematically searches for a path that visits each vertex in a graph exactly once, without forming a cycle. By recursively exploring all possible routes and backtracking when a dead-end is reached, the solution demonstrates how computationally intensive this problem can be, especially for larger graphs. This implementation was created as part of a coursework assignment in the Foundations of Algorithm Design and Analysis discipline at PUC Minas, focusing on understanding NP-complete problems and applying classic algorithmic strategies.
 
 ---
