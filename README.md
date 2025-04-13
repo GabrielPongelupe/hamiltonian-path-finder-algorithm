@@ -134,7 +134,7 @@ This will launch a graphical window showing the graph with vertices, edges, and 
 ### 💡 Example:
 When you run the visualization, you’ll see something like this:
 
-![image](https://github.com/user-attachments/assets/d805f92d-957f-4d18-ba0e-f311b0f1a16a)
+![GRAPH_COMPLEMENT](/images/image.png)
 
 - A graph with connected nodes (vertices) and edges linking them.
 
