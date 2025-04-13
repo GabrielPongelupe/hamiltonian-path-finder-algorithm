@@ -50,9 +50,11 @@ python hamiltonianPathView.py
 ## 🧩 Understanding the Logic Behind the Hamiltonian Path Algorithm
 The Hamiltonian Path algorithm using backtracking works by trying to construct a path that visits each vertex in a graph exactly once. Starting from an initial vertex, the algorithm recursively explores all unvisited neighbors, marking each visited vertex along the way. If it reaches a point where no unvisited adjacent vertices are available and the path is incomplete, it backtracks to the previous step and tries a different route. This process continues until a valid path covering all vertices is found or all possibilities are exhausted.
 
+---
 
-
-
+## 🔍 Step-by-Step Explanation of the Hamiltonian Path Solver
+This section breaks down how the Hamiltonian Path algorithm using backtracking works in this Python implementation.
+[See detailed explanation of the Hamiltonian Path in the code/README.md](code/README.md)
 
 
 
