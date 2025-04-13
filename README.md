@@ -56,5 +56,42 @@ The Hamiltonian Path algorithm using backtracking works by trying to construct a
 This section breaks down how the Hamiltonian Path algorithm using backtracking works in this Python implementation.
 [See detailed explanation of the Hamiltonian Path in the code/README.md](code/README.md)
 
+---
+
+## Asymptotic Complexity Analysis
+### Time Complexity
+* Worst-case (O(N!)): In the worst case, the algorithm explores all possible permutations of the vertices. For a graph with N vertices, there are N! possible ways to arrange these vertices in a path. Thus, in the worst-case scenario, the algorithm must check every permutation, leading to a time complexity of O(N!).
+* __Best-case (O(N)):__ In the best case, the algorithm may find the Hamiltonian path early, such as on the first few branches of the search tree. If a valid path is found quickly, the algorithm performs in a nearly linear fashion, giving a time complexity of O(N).
+* __Average-case (Exponential Growth):__ The average-case complexity depends on the structure and density of the graph. In a dense graph, where many vertices are connected, the search tree grows rapidly, and the algorithm may explore many possible paths before finding a solution. This results in exponential time complexity, often approximated as O(2^N), where N is the number of vertices.
+
+
+
+### Conclusion
+The overall complexity is dominated by the factorial growth in the worst case, which makes the algorithm inefficient for large graphs. The actual performance can vary depending on the graph's structure, but in general, the Hamiltonian Path problem is NP-complete and has high computational demands as the number of vertices increases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
