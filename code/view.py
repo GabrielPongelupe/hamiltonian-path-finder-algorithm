@@ -1,40 +1,47 @@
-import networkx as nx
 import matplotlib.pyplot as plt
-from hamiltonian import find_hamiltonian_path 
+import networkx as nx
 
-def plot_graph_with_path(adjacency_matrix, hamiltonian_route=None):
-    graph = nx.Graph()
+# Função para desenhar o grafo com personalizações
+def draw_graph(adj_matrix, path=None):
+    G = nx.Graph()
 
-    vertex_count = len(adjacency_matrix)
-    
-    for i in range(vertex_count):
-        graph.add_node(i)
+    # Adicionar os vértices e as arestas
+    for i in range(len(adj_matrix)):
+        for j in range(i + 1, len(adj_matrix)):
+            if adj_matrix[i][j] == 1:
+                G.add_edge(i, j)
 
-    for i in range(vertex_count):
-        for j in range(i + 1, vertex_count):
-            if adjacency_matrix[i][j] == 1:
-                graph.add_edge(i, j)
+    # Definir posições dos vértices (usando layout forçado)
+    pos = nx.spring_layout(G)
 
-    positions = nx.spring_layout(graph, seed=42)
+    # Desenhar os vértices
+    node_color = ['red' if node in path else 'lightblue' for node in G.nodes()]
+    node_shape = ['s' if node in path else 'o' for node in G.nodes()]  # Quadrado para parte do caminho, círculo para os outros
+    nx.draw_networkx_nodes(G, pos, node_color=node_color, node_size=700)
 
-    nx.draw(graph, positions, with_labels=True, node_color='skyblue', node_size=700, font_weight='bold')
-    
-    if hamiltonian_route:
-        hamiltonian_edges = [(hamiltonian_route[i], hamiltonian_route[i + 1]) for i in range(len(hamiltonian_route) - 1)]
-        hamiltonian_edges.append((hamiltonian_route[-1], hamiltonian_route[0]))  # Para formar o ciclo
-        nx.draw_networkx_edges(graph, positions, edgelist=hamiltonian_edges, edge_color='red', width=2)
+    # Desenhar as arestas
+    edge_color = ['red' if (u in path and v in path) else 'gray' for u, v in G.edges()]
+    edge_width = [3 if (u in path and v in path) else 1 for u, v in G.edges()]
+    nx.draw_networkx_edges(G, pos, edge_color=edge_color, width=edge_width)
 
-    plt.title("Graph with Hamiltonian Path" if hamiltonian_route else "Graph without Hamiltonian Path")
+    # Desenhar os rótulos dos vértices
+    nx.draw_networkx_labels(G, pos, font_size=12, font_color='black')
+
+    # Exibir o gráfico
+    plt.title("Hamiltonian Path Visualization")
+    plt.axis('off')
     plt.show()
 
-if __name__ == "__main__":
-    example_graph = [
-        [0, 1, 1, 1],
-        [1, 0, 1, 0],
-        [1, 1, 0, 1],
-        [1, 0, 1, 0]
-    ]
-    
-    route = find_hamiltonian_path(example_graph)
-    
-    plot_graph_with_path(example_graph, route)
+# Exemplo de matriz de adjacência (para um grafo simples)
+adj_matrix = [
+    [0, 1, 0, 1],
+    [1, 0, 1, 0],
+    [0, 1, 0, 1],
+    [1, 0, 1, 0]
+]
+
+# Exemplo de caminho Hamiltoniano (ordem dos vértices visitados)
+path = [0, 1, 2, 3]
+
+# Chamar a função de visualização
+draw_graph(adj_matrix, path)
