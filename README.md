@@ -84,31 +84,4 @@ Here:
 However, this approach doesn't align with the structure of the Hamiltonian Path algorithm. Instead of dividing the problem into smaller, manageable pieces, the algorithm explores multiple potential solutions through a backtracking process. This means the problem doesn't follow a clean recursive division of the input, which makes it incompatible with the type of recurrence required for applying the Master Theorem.
 
 ### Why the Master Theorem Doesn't Fit Here
-The Hamiltonian Path algorithm works by exploring potential paths through a backtracking process, which is not based on a systematic problem subdivision. Unlike algorithms that divide the problem into smaller subproblems (as required for the Master Theorem), this algorithm attempts different path combinations and backtracks whenever a path doesn't work. The search space grows exponentially because the algorithm checks many possible configurations. Therefore, the problem cannot be expressed in the standard recurrence form of T(n) = aT(n/b) + f(n), which is a requirement for applying the Master Theorem.
-
-As a result, the Master Theorem is not applicable here, as the algorithm does not divide the problem into smaller subproblems in a structured manner. The algorithm’s complexity arises from the exploration of possible paths, not from recursively solving smaller parts of the problem. Thus, the Master Theorem would not provide meaningful insights into the analysis of this algorithm.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The Master Theorem doesn't apply to the Hamiltonian Path algorithm because it doesn't divide the problem into smaller subproblems in a systematic way. Instead, the algorithm explores different path combinations and backtracks when necessary. The search space grows exponentially, and it doesn't fit the required format for using the Master Theorem, which relies on dividing the problem recursively. Therefore, the Master Theorem isn't useful for analyzing this algorithm.
