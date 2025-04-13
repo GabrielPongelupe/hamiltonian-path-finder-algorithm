@@ -17,7 +17,7 @@ def solve_path_util(adj_matrix, route, current_pos):
             route[current_pos] = -1  # backtrack
     return False
 
-def solve_hamiltonian_path(adj_matrix):
+def find_hamiltonian_path(adj_matrix):
     route = [-1] * len(adj_matrix)
     route[0] = 0  # starting from vertex 0
 
